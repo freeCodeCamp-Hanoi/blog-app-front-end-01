@@ -4,12 +4,15 @@ export const FETCH_POSTS = "fetch_posts";
 export const FETCH_POST = "fetch_post";
 export const CREATE_POST = "create_post";
 export const DELETE_POST = "delete_post";
+export const FETCH_COMMENTS = "fetch_comments";
 
 const ROOT_URL = "http://localhost:3000/api";
 const API_KEY = '';
 
 export function fetchPosts() {
   const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+
+  console.log(request);
 
   return {
     type: FETCH_POSTS,
@@ -45,5 +48,14 @@ export function deletePost(id, callback) {
   return {
     type: DELETE_POST,
     payload: id
+  };
+}
+
+export function fetchComments(id) {
+  const request = axios.get(`${ROOT_URL}/comments?post_id=${id}`);
+
+  return {
+    type: FETCH_COMMENTS,
+    payload: request
   };
 }
