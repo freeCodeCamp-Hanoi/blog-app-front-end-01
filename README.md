@@ -1,25 +1,15 @@
-# ReduxSimpleStarter
+# Hướng dẫn cài đặt
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 
-### Getting Started
+### Bước 1: Chạy mongoDB
 
-There are two methods for getting started with this repo.
+### Bước 2: Chạy back-end
 
-#### Familiar with Git?
-Checkout this repo, install dependencies, then start the gulp process with the following:
+Địa chỉ API của back-end trên localhost là : http://localhost:3000
 
-```
-> git clone https://github.com/StephenGrider/ReduxSimpleStarter.git
-> cd ReduxSimpleStarter
-> npm install
-> npm start
-```
+### Bước 3: Chạy front-end
 
-#### Not Familiar with Git?
-Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+- `npm install`
+- `npm start`
 
-```
-> npm install
-> npm start
-```
+Front-end chạy trên localhost là http://localhost:8080
