@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { fetchComments } from "../actions";
+import _ from "lodash";
 
 class CommentsShow extends Component {
-  componentDidMount() {
+  componentWillMount() {
 
     this.props.fetchComments(this.props.post_id);
   }
@@ -14,24 +14,25 @@ class CommentsShow extends Component {
     
     const { comments } = this.props;
 
-    // console.log(comments);
-
-    if (!comments) {
+    if (!comments.length) {
       return <div></div>;
     }
 
-
     return (
+
       <div>
-        <p>{comments.content}</p>
+          {
+            comments.map(comment => (
+              <div key={comment._id}>- {comment.content}</div>
+            ))
+          }
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state);
-  return { comments: state };
+  return { comments: state.comments };
 }
 
 export default connect(mapStateToProps, { fetchComments })(CommentsShow);

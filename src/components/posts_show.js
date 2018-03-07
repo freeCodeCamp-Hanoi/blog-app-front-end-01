@@ -23,13 +23,9 @@ class PostsShow extends Component {
     
     const { post } = this.props;
 
-    // console.log(comments);
-
     if (!post) {
       return <div>Loading...</div>;
     }
-
-    // console.log(post._id);
 
     return (
       <div>
