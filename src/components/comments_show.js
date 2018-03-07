@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchComments } from "../actions";
-import _ from "lodash";
 
 class CommentsShow extends Component {
   componentWillMount() {
