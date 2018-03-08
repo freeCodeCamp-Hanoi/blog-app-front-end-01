@@ -1,3 +1,36 @@
+.navbar-nav {
+    float: right;
+}
+
+.navbar-default {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #ffffff;
+}
+
+.nav.navbar-nav li a {
+    color: #ffffff;
+    font-weight: bold;
+}
+.jumbotron {
+    text-align: center;
+    background: url("background.jpg");
+    height: 322px;
+    color: #ffffff;
+    padding-top: 70px; }
 form a {
     margin-left: 5px;
 }
+footer {
+    text-align: center;
+    padding: 30px 0 10px 0px;
+    border-top: 1px solid #c5c5c5;
+}
+
+.social i {
+    margin: 5px;
+    color: #000000; }
