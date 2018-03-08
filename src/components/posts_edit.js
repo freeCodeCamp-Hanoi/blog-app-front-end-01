@@ -6,15 +6,25 @@ import { createPost, fetchPost } from '../actions'
 
 class PostsEdit extends Component {
 
-  componentWillMount () {
+  constructor (props) {
+    super(props)
+
+  }
+
+  componentDidMount () {
     const {id} = this.props.match.params
     this.props.fetchPost(id)
+
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.props.initialize({title: nextProps.post.title, content: nextProps.post.content})
   }
 
   renderField (field) {
     const {value, textarea, meta: {touched, error}} = field
     const className = `form-group ${touched && error ? 'has-danger' : ''}`
-    console.log(field);
+
     return (
       <div className={className}>
         <label>{field.label}</label>
@@ -44,8 +54,6 @@ class PostsEdit extends Component {
     if (!post) {
       return <div></div>
     }
-
-    this.props.initialize({title: post.title, content: post.content});
 
     console.log(post);
     return (
