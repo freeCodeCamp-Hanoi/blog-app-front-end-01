@@ -15,7 +15,7 @@ class PostsIndex extends Component {
         <div className="row" key={post._id}>
           <div className="col-md-12">
             <div className="article">
-              <h2><Link to={`/post/${post._id}`} className="title">{post.title}</Link></h2>
+              <h2><Link to={`/posts/${post._id}`} className="title">{post.title}</Link></h2>
               <div className="description">
                 <p>{post.content}</p>
               </div>
@@ -33,11 +33,9 @@ class PostsIndex extends Component {
 
   render () {
     return (
-      <div className="container">
-        <div className="col-md-8 col-md-offset-2">
-
+      <div>
           <div className='text-xs-right'>
-            <Link className='btn btn-primary' to='/posts/new'>
+            <Link className='btn btn-primary fcc-btn' to='/posts/new'>
               Viết bài
             </Link>
           </div>
@@ -46,7 +44,6 @@ class PostsIndex extends Component {
             {this.renderPosts()}
           </div>
 
-        </div>
       </div>
     )
   }
