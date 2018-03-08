@@ -19,6 +19,7 @@ export function fetchPosts() {
 }
 
 export function createPost(values, callback) {
+  values.user_id = "5a71d47f50c7ca4ca878ba43";
   const request = axios
     .post(`${ROOT_URL}/posts${API_KEY}`, values)
     .then(() => callback());

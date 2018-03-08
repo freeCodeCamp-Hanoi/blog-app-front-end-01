@@ -30,6 +30,8 @@ class CommentsShow extends Component {
   }
 }
 
+// 
+
 function mapStateToProps(state) {
   return { comments: state.comments };
 }

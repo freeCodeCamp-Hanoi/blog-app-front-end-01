@@ -27,6 +27,7 @@ class PostsNew extends Component {
   }
 
   render() {
+      console.log("Helllo");
     const { handleSubmit } = this.props;
 
     return (
