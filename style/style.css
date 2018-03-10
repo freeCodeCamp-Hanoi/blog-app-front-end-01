@@ -1,15 +1,19 @@
 .m-r-5 {
     margin-right: 5px;
 }
+
 .m-l-5 {
     margin-left: 5px;
 }
+
 .d-block {
     display: block;
 }
+
 .text-right {
     text-align: right;
 }
+
 .navbar-nav {
     float: right;
 }
@@ -45,8 +49,43 @@ form a {
     border: none;
     border-radius: 0;
 }
+
 .post-edit-content {
     height: 250px;
+}
+
+.article .meta {
+    font-style: italic;
+}
+
+.article::after {
+    content: ' ';
+    height: 1px;
+    background-color: #c5c5c5;
+    width: 100%;
+    display: table;
+    margin-top: 20px;
+}
+
+.article .title {
+    color: #000000;
+}
+
+.pagination {
+    width: 100%;
+}
+
+.pagination .btn {
+    border-radius: 0;
+    min-width: 150px;
+}
+
+.btn-next {
+    float: right;
+}
+
+.btn-previous {
+    float: left;
 }
 
 footer {

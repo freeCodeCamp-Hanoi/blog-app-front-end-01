@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { fetchPosts } from '../actions'
+import Pagination from './pagination'
 
 class PostsIndex extends Component {
   componentDidMount () {
@@ -43,6 +44,8 @@ class PostsIndex extends Component {
           <div className="article-list">
             {this.renderPosts()}
           </div>
+
+          <Pagination/>
 
       </div>
     )
