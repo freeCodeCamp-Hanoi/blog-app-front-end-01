@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { fetchPost, deletePost, fetchComments } from '../actions'
-import CommentsShow from './comments_show'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { fetchPost, deletePost } from '../actions';
+import CommentsShow from './comments_show';
+
 
 class PostsShow extends Component {
   componentDidMount () {

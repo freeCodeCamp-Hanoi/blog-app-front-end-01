@@ -7,12 +7,12 @@ class Footer extends Component {
             <footer>
                 <div className="contaier">
                     <div className="social">
-                        <a href=""><i className="fa fa-2x fa-facebook" aria-hidden="true"></i></a>
-                        <a href=""><i className="fa fa-2x fa-github" aria-hidden="true"></i></a>
-                        <a href=""><i className="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/groups/free.code.camp.hanoi/"><i className="fa fa-2x fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://github.com/freeCodeCamp-Hanoi"><i className="fa fa-2x fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/hanoifreecodecamp/"><i className="fa fa-2x fa-instagram" aria-hidden="true"></i></a>
                     </div>
 
-                    <small>Copyright &copy; Freecodecamp Hanoi 2018</small>
+                    <small>Copyright &copy; freeCodeCamp Hanoi 2018</small>
                 </div>
             </footer>
         );

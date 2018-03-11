@@ -12,7 +12,7 @@ class Header extends Component {
         return (
             <header>
                 <Nav />
-                <Jumbotron title="Coffee-House Blog" description="A product by member of freeCodeCamp Hanoi" />
+                <Jumbotron title="Coffee-House Blog" description="A product by members of freeCodeCamp Hanoi" />
             </header>
 
         );

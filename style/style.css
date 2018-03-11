@@ -32,6 +32,9 @@
 .jumbotron {
     text-align: center;
     background: url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
     height: 322px;
     color: #ffffff;
     padding-top: 70px;

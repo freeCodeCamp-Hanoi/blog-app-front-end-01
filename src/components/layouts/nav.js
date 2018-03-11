@@ -10,13 +10,15 @@ class Nav extends Component {
 
                 <div className="container">
 
-                    <Link to="/" className="navbar-brand" href="#">Freecodecamp Hanoi</Link>
                     <ul className="nav navbar-nav">
                         <li>
-                            <a href="#">Home</a>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <a href="#">Login</a>
+                            <Link to="/login">Login</Link>
+                        </li>
+                        <li>
+                            <a href="/about">About us</a>
                         </li>
                     </ul>
 
