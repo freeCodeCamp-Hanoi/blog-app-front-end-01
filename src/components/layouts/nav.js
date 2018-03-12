@@ -6,22 +6,20 @@ class Nav extends Component {
     render() {
         return (
 
-            <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div className="collapse navbar-collapse">
 
-                <div className="container">
-
-                    <ul className="nav navbar-nav">
-                        <li>
-                            <Link to="/">Home</Link>
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <Link to="/" className="nav-link">Home</Link>
                         </li>
-                        <li>
-                            <Link to="/login">Login</Link>
+                        <li className="nav-item">
+                            <Link to="/login" className="nav-link">Login</Link>
                         </li>
-                        <li>
-                            <a href="/about">About us</a>
+                        <li className="nav-item">
+                            <a href="/about" className="nav-link">About us</a>
                         </li>
                     </ul>
-
                 </div>
 
             </nav>

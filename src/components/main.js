@@ -10,7 +10,7 @@ export default class Main extends Component {
   render () {
     return (
       <div className="container">
-        <div className="col-md-8 col-md-offset-2">
+        <div className="col-md-8 offset-md-2">
 
           <Switch>
             <Route exact path="/" component={PostsIndex}/>
