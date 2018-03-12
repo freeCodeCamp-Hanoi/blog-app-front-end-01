@@ -36,8 +36,8 @@ class PostsIndex extends Component {
                 <p> {postPreview}</p>
               </div>
               <div className="meta">
-              {/* Written by <a href="" className="author">{post.author.name}</a> */}
-              <span>Viết ngày {postCreatedAt}</span>
+               Viết bởi <a href="" className="author">{post.user.username || null}</a>
+              <span> ngày {postCreatedAt}</span>
               </div>
             </div>
           </div>

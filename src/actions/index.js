@@ -5,6 +5,7 @@ export const FETCH_POST = "fetch_post";
 export const CREATE_POST = "create_post";
 export const DELETE_POST = "delete_post";
 export const FETCH_COMMENTS = "fetch_comments";
+export const LOGIN_USER = 'login_user';
 
 const ROOT_URL = "http://localhost:3000/api";
 const API_KEY = '';
@@ -56,5 +57,19 @@ export function fetchComments(id) {
   return {
     type: FETCH_COMMENTS,
     payload: request
+  };
+}
+
+export function loginUser (payload, callback) {
+  // const request = axios.post(`${ROOT_URL}/users?post_id=${id}`);
+
+  return {
+    type: FETCH_COMMENTS,
+    payload: {
+      success: false,
+      data: {
+        _token: 'abcd322'
+      }
+    }
   };
 }
