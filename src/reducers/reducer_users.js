@@ -5,7 +5,7 @@ export default function UsersReducer(state = {}, action) {
         case FETCH_USERS:
             return action.payload.data;
       case LOGIN_USER:
-          return action.payload;
+          return {...state, response: action.payload};
 
         default:
             return state;

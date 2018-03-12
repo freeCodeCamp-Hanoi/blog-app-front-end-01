@@ -1,42 +1,54 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { loginUser } from '../actions'
+import { Auth } from './auth'
 
 class Login extends Component {
 
   constructor (props) {
     super(props)
     this.state = {
-      email: null,
+      username: null,
       password: null,
-      error: null
+      error: null,
+      redirect: false
     }
   }
 
   login () {
-    const result = this.props.loginUser(this.state);
+    this.props.loginUser(this.state, this.success.bind(this), this.failure.bind(this))
+  }
 
-    if (result.payload.success) {
-      window.location.href = '/';
-    } else {
-      this.setState({error: 'username or password wrong!'})
-    }
+  success (res) {
+    Auth.setToken(res.data.token)
+    this.setState({redirect: true})
+  }
+
+  failure (error) {
+    this.setState({error: 'Wrong username or password'});
+    this.setState({redirect: false});
   }
 
   render () {
+    const {redirect} = this.state
+
+    if (redirect) {
+      return <Redirect to='/'/>
+    }
+
     return (
       <form onSubmit={this.login}>
         <legend>Login</legend>
 
         <div className="form-group">
-          <label for="">Email</label>
-          <input type="text" className="form-control" name="email"
-                 onChange={(e) => this.setState({email: e.target.value})}/>
+          <label>Email</label>
+          <input type="text" className="form-control" name="username"
+                 onChange={(e) => this.setState({username: e.target.value})}/>
         </div>
 
         <div className="form-group">
-          <label for="">Password</label>
+          <label>Password</label>
           <input type="password" className="form-control" name="password"
                  onChange={(e) => this.setState({password: e.target.value})}/>
         </div>
@@ -46,8 +58,8 @@ class Login extends Component {
           <Link to='/register'>Register</Link>
         </div>
 
-        <div className="div form-group">
-          <p className="warning">{this.state.error}</p>
+        <div className="form-group">
+          <p className="text-danger">{this.state.error}</p>
         </div>
       </form>
     )
@@ -55,9 +67,8 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({users}) {
-  return {user: users};
+function mapStateToProps (state, response) {
+  return {user: state.users}
 }
 
-
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps, {loginUser})(Login)

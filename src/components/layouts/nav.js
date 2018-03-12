@@ -1,33 +1,42 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { Auth } from '../auth'
+
 
 class Nav extends Component {
 
-    render() {
-        return (
+  render () {
+    return (
 
-            <nav className="navbar navbar-expand-lg navbar-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark">
 
-                <div className="container">
-                <div className="collapse navbar-collapse">
+        <div className="container">
+          <div className="collapse navbar-collapse">
 
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link">Home</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/login" className="nav-link">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <a href="/about" className="nav-link">About us</a>
-                        </li>
-                    </ul>
-                </div>
-                </div>
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link to="/" className="nav-link">Home</Link>
+              </li>
+              {
+                Auth.isAuthenticated()
+                  ? <li className="nav-item">
+                    <Link to="/logout" className="nav-link">Logout</Link>
+                  </li>
+                  : <li className="nav-item">
+                    <Link to="/login" className="nav-link">Login</Link>
+                  </li>
+              }
 
-            </nav>
-        );
-    }
+              <li className="nav-item">
+                <a href="/about" className="nav-link">About us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </nav>
+    )
+  }
 }
 
-export default Nav;
+export default Nav
