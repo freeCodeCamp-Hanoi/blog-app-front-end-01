@@ -10,8 +10,6 @@ class PostsNew extends Component {
     const {textarea, meta: {touched, error}} = field;
     const className = `form-group ${touched && error ? 'has-danger' : ''}`;
 
-    console.log(textarea);
-
     return (
       <div className={className}>
         <label>{field.label}</label>
@@ -29,6 +27,8 @@ class PostsNew extends Component {
   }
 
   onSubmit (values) {
+
+    
     this.props.createPost(values, () => {
       this.props.history.push('/')
     })

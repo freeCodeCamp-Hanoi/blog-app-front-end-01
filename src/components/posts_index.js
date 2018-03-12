@@ -17,8 +17,13 @@ class PostsIndex extends Component {
     }
 
     function convertDate(d) {
+      console.log(d);
       const date = new Date(Date.parse(d));
-      const localStyleDate = date.toLocaleDateString();
+      // const day = date.getDate();
+      // const month = date.getMonth();
+      // const year = date.getFullYear();
+
+      const localStyleDate = date.toLocaleDateString("vi-VN");
       return localStyleDate; 
     }
 
@@ -35,9 +40,8 @@ class PostsIndex extends Component {
               <div className="description">
                 <p> {postPreview}</p>
               </div>
-              <div className="meta">
-              {/* Written by <a href="" className="author">{post.author.name}</a> */}
-              <span>Viết ngày {postCreatedAt}</span>
+              <div className="post-info">
+              <span>Written on {postCreatedAt} by {post.user.username}</span>
               </div>
             </div>
           </div>

@@ -10,6 +10,20 @@
     text-align: right;
 }
 
+nav.navbar {
+    position: absolute;
+    width: 100%;
+    background: rgba(200, 200, 200, 0.5);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-size: 24px
+}
+.navbar-nav {
+    margin: 0 auto;
+}
+
 .jumbotron {
     text-align: center;
     background: url("background.jpg");
@@ -21,6 +35,12 @@
     padding-top: 70px;
 }
 
+.jumbotron > .container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+ }
+
 form a {
     margin-left: 5px;
 }
@@ -29,8 +49,9 @@ form a {
     height: 250px;
 }
 
-.article .meta {
+.article .post-info {
     font-style: italic;
+    text-align: right;
 }
 
 .article::after {

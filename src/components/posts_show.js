@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchPost, deletePost } from '../actions';
 import CommentsShow from './comments_show';
+import CommentsNew from './comment_new';
 
 
 class PostsShow extends Component {
@@ -48,6 +49,10 @@ class PostsShow extends Component {
         <div className="">
           <h3>{post.title}</h3>
           <p>{post.content}</p>
+        </div>
+
+        <div className="comment-new">
+          <CommentsNew postID = {post._id} />
         </div>
 
         <div>
