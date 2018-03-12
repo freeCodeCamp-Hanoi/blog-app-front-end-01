@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Auth } from '../components/auth'
 
 export const FETCH_POSTS = 'fetch_posts'
 export const FETCH_POST = 'fetch_post'
@@ -11,6 +12,8 @@ export const CREATE_COMMENT = 'create_comment'
 const ROOT_URL = 'http://localhost:3000/api'
 const API_KEY = ''
 
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + Auth.getToken()
+
 export function fetchPosts () {
   const request = axios.get(`${ROOT_URL}/posts${API_KEY}`)
 
@@ -21,7 +24,6 @@ export function fetchPosts () {
 }
 
 export function createPost (values, callback) {
-  values.user_id = '5a71d47f50c7ca4ca878ba43'
   const request = axios
     .post(`${ROOT_URL}/posts${API_KEY}`, values)
     .then(() => callback())

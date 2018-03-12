@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createPost } from '../actions'
+import { Auth } from './auth'
 
 class PostsNew extends Component {
 
@@ -27,8 +28,7 @@ class PostsNew extends Component {
   }
 
   onSubmit (values) {
-
-    
+    values.user_id = Auth.id()
     this.props.createPost(values, () => {
       this.props.history.push('/')
     })

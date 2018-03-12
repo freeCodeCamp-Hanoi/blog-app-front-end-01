@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { loginUser } from '../actions'
 import { Auth } from './auth'
+import axios from 'axios'
 
 class Login extends Component {
 
