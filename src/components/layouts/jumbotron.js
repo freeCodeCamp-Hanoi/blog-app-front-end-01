@@ -6,8 +6,10 @@ class Jumbotron extends Component {
 
         return (
             <div className="jumbotron">
-                <h1 className="display-3">{this.props.title }</h1>
-                <p className="lead">{this.props.description }</p>
+                <div className="container">
+                    <h1 className="display-2">{this.props.title}</h1>
+                    <p className="lead">{this.props.description}</p>
+                </div>
             </div>
         );
     }

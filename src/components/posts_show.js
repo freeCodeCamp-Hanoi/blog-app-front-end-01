@@ -28,11 +28,12 @@ class PostsShow extends Component {
       return <div>Loading...</div>
     }
 
+
     return (
       <div>
         <div className="d-block text-right">
           <Link
-            className="btn fcc-btn btn-warning btn-sm m-r-5"
+            className="btn fcc-btn btn-info btn-sm m-r-5"
             to={`/posts/${post._id}/edit`}>
             Edit Post
           </Link>
@@ -44,7 +45,7 @@ class PostsShow extends Component {
           </button>
         </div>
 
-        <div className="post-main">
+        <div className="">
           <h3>{post.title}</h3>
           <p>{post.content}</p>
         </div>
