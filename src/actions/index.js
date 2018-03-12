@@ -6,6 +6,7 @@ export const CREATE_POST = "create_post";
 export const DELETE_POST = "delete_post";
 export const FETCH_COMMENTS = "fetch_comments";
 export const LOGIN_USER = 'login_user';
+export const CREATE_COMMENT = 'create_comment';
 
 const ROOT_URL = "http://localhost:3000/api";
 const API_KEY = '';
@@ -29,6 +30,18 @@ export function createPost(values, callback) {
     type: CREATE_POST,
     payload: request
   };
+}
+
+export function createComment(values, callback) {
+  const request = axios
+    .post(`${ROOT_URL}/comments`, values)
+    .then(() => callback());
+
+  return {
+    type: CREATE_COMMENT,
+    payload: request
+  };
+
 }
 
 export function fetchPost(id) {

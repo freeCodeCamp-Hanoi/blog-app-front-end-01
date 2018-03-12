@@ -6,7 +6,9 @@ class Nav extends Component {
     render() {
         return (
 
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark">
+
+                <div className="container">
                 <div className="collapse navbar-collapse">
 
                     <ul className="navbar-nav">
@@ -20,6 +22,7 @@ class Nav extends Component {
                             <a href="/about" className="nav-link">About us</a>
                         </li>
                     </ul>
+                </div>
                 </div>
 
             </nav>

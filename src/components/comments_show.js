@@ -22,7 +22,7 @@ class CommentsShow extends Component {
       <div>
           {
             comments.map(comment => (
-              <div key={comment._id}>- {comment.content}</div>
+              <div key={comment._id}>- {comment.content} written by {comment.authorID.username}</div>
             ))
           }
       </div>
@@ -33,7 +33,6 @@ class CommentsShow extends Component {
 // 
 
 function mapStateToProps(state) {
-  console.log(state.comments);
   return { comments: state.comments };
 }
 
