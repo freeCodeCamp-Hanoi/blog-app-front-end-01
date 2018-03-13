@@ -23,6 +23,7 @@ class Login extends Component {
 
   success (res) {
     Auth.setToken(res.data.token)
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + Auth.getToken() //lmao
     this.setState({redirect: true})
   }
 
