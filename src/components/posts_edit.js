@@ -3,22 +3,31 @@ import { Field, reduxForm } from 'redux-form'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { editPost, fetchPost } from '../actions'
+import { Auth } from './auth'
 
 class PostsEdit extends Component {
 
   constructor (props) {
     super(props)
 
+    this.state = {
+      initForm: false
+    }
+
+    const {id} = this.props.match.params
+    this.props.fetchPost(id, () => this.props.initialize({title: this.props.post.title, content: this.props.post.content}))
   }
 
   componentDidMount () {
-    const {id} = this.props.match.params
-    this.props.fetchPost(id)
+
 
   }
 
   componentWillReceiveProps (nextProps) {
-    this.props.initialize({title: nextProps.post.title, content: nextProps.post.content})
+    if (!this.state.initForm) {
+      this.setState({initForm: true})
+      this.props.initialize({title: nextProps.post.title, content: nextProps.post.content})
+    }
   }
 
   renderField (field) {
@@ -42,7 +51,9 @@ class PostsEdit extends Component {
   }
 
   onSubmit (values) {
-    this.props.createPost(values, () => {
+    values.user_id = Auth.id()
+    values.id = this.props.post._id
+    this.props.editPost(values, () => {
       this.props.history.push('/')
     })
   }
@@ -58,13 +69,13 @@ class PostsEdit extends Component {
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 
-        <Field label="Tiêu đề bài viết" name="title" component={this.renderField} defaultValue={post.title}/>
+        <Field label="Tiêu đề bài viết" name="title" component={this.renderField} defaultValue={this.props.post.title} />
 
         <Field
           label="Nội dung"
           name="content"
-          defaultValue={post.content}
           textarea={true}
+          defaultValue={this.props.post.content}
           component={this.renderField}
         />
         <button type="submit" className="btn fcc-btn btn-primary">Đăng bài</button>
@@ -92,7 +103,9 @@ function validate (values) {
 }
 
 function mapStateToProps ({posts}, ownProps) {
-  return {post: posts[ownProps.match.params.id]}
+  return {
+    post: posts[ownProps.match.params.id]
+  }
 }
 
 export default reduxForm({
