@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { createPost, fetchPost } from '../actions'
+import { editPost, fetchPost } from '../actions'
 
 class PostsEdit extends Component {
 
@@ -17,12 +17,12 @@ class PostsEdit extends Component {
 
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     this.props.initialize({title: nextProps.post.title, content: nextProps.post.content})
   }
 
   renderField (field) {
-    const {value, textarea, meta: {touched, error}} = field
+    const {textarea, meta: {touched, error}} = field
     const className = `form-group ${touched && error ? 'has-danger' : ''}`
 
     return (
@@ -30,7 +30,7 @@ class PostsEdit extends Component {
         <label>{field.label}</label>
         {
           textarea
-            ? <textarea {...field.input} className="form-control post-edit-content"></textarea>
+            ? <textarea className="form-control post-edit-content" {...field.input} ></textarea>
             : <input className="form-control" type="text" {...field.input} />
         }
 
@@ -55,15 +55,15 @@ class PostsEdit extends Component {
       return <div></div>
     }
 
-    console.log(post);
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 
-        <Field label="Tiêu đề bài viết" name="title" component={this.renderField}/>
+        <Field label="Tiêu đề bài viết" name="title" component={this.renderField} defaultValue={post.title}/>
 
         <Field
           label="Nội dung"
           name="content"
+          defaultValue={post.content}
           textarea={true}
           component={this.renderField}
         />
@@ -98,4 +98,4 @@ function mapStateToProps ({posts}, ownProps) {
 export default reduxForm({
   validate,
   form: 'PostsEditForm'
-})(connect(mapStateToProps, {createPost, fetchPost})(PostsEdit))
+})(connect(mapStateToProps, {editPost, fetchPost})(PostsEdit))

@@ -3,12 +3,20 @@ import { Field, reduxForm } from 'redux-form'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createComment } from '../actions'
+import { Auth } from './auth'
 
 class CommentsNew extends Component {
 
+  constructor (props) {
+    super(props)
+    this.state = {
+      submitted: false
+    }
+  }
+
   renderField (field) {
-    const {textarea, meta: {touched, error}} = field;
-    const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+    const {textarea, meta: {touched, error}} = field
+    const className = `form-group ${touched && error ? 'has-danger' : ''}`
 
     return (
       <div className={className}>
@@ -24,12 +32,14 @@ class CommentsNew extends Component {
   }
 
   onSubmit (values) {
-      values.comment_authorID = '5a7823c2f89e483df52dcac9';
-      values.comment_postID = this.props.postID;
-      console.log(this.props.history);
+    values.comment_authorID = Auth.id()
+    values.comment_postID = this.props.postID
+    console.log(this.props.history)
     this.props.createComment(values, () => {
       window.location.href = `/posts/${this.props.postID}`
     })
+
+    this.setState({submitted: true})
   }
 
   render () {
@@ -51,7 +61,6 @@ class CommentsNew extends Component {
     )
   }
 }
-
 
 export default reduxForm({
   form: 'CommentsNewForm'

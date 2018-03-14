@@ -22,7 +22,9 @@ class CommentsShow extends Component {
       <div>
           {
             comments.map(comment => (
-              <div key={comment._id}>- {comment.content} written by {comment.authorID.username}</div>
+              <div key={comment._id}>- {comment.content}
+              {/*written by {comment.authorID.username}*/}
+              </div>
             ))
           }
       </div>

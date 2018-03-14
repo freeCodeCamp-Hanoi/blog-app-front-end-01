@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { fetchPost, deletePost } from '../actions';
-import CommentsShow from './comments_show';
-import CommentsNew from './comment_new';
-
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { fetchPost, deletePost } from '../actions'
+import CommentsShow from './comments_show'
+import CommentsNew from './comment_new'
+import { Auth } from './auth'
 
 class PostsShow extends Component {
   componentDidMount () {
@@ -29,22 +29,24 @@ class PostsShow extends Component {
       return <div>Loading...</div>
     }
 
-
     return (
       <div>
-        <div className="d-block text-right">
+        { (post.user._id === Auth.id() ) ?
+          <div className="d-block text-right">
           <Link
-            className="btn fcc-btn btn-info btn-sm m-r-5"
-            to={`/posts/${post._id}/edit`}>
-            Edit Post
+          className="btn fcc-btn btn-info btn-sm m-r-5"
+          to={`/posts/${post._id}/edit`}>
+          Edit Post
           </Link>
           <button
-            className="btn fcc-btn btn-danger btn-sm"
-            onClick={this.onDeleteClick.bind(this)}
+          className="btn fcc-btn btn-danger btn-sm"
+          onClick={this.onDeleteClick.bind(this)}
           >
-            Delete Post
+          Delete Post
           </button>
-        </div>
+          </div>
+          : null
+        }
 
         <div className="">
           <h3>{post.title}</h3>
@@ -52,7 +54,7 @@ class PostsShow extends Component {
         </div>
 
         <div className="comment-new">
-          <CommentsNew postID = {post._id} />
+          <CommentsNew postID={post._id}/>
         </div>
 
         <div>
