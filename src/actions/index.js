@@ -7,6 +7,7 @@ export const CREATE_POST = 'create_post'
 export const EDIT_POST = 'edit_post'
 export const DELETE_POST = 'delete_post'
 export const FETCH_COMMENTS = 'fetch_comments'
+export const REGISTER_USER = 'register_user'
 export const LOGIN_USER = 'login_user'
 export const CREATE_COMMENT = 'create_comment'
 
@@ -85,6 +86,18 @@ export function fetchComments (id) {
     type: FETCH_COMMENTS,
     payload: request
   }
+}
+
+export function registerUser(payload, success, failure) {
+  console.log({...payload})
+  const request = axios.post(`${ROOT_URL}/users`, payload)
+    .then((res) => success(res))
+    .catch((err) => failure(err))
+
+    return {
+      type: REGISTER_USER,
+      payload: request
+    }
 }
 
 export function loginUser (payload, success, failure) {

@@ -44,7 +44,7 @@ class Login extends Component {
         <legend>Login</legend>
 
         <div className="form-group">
-          <label>Email</label>
+          <label>Username</label>
           <input type="text" className="form-control" name="username"
                  onChange={(e) => this.setState({username: e.target.value})}/>
         </div>
