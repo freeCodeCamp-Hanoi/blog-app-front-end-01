@@ -9,7 +9,7 @@ class PostsIndex extends Component {
   componentDidMount () {
     this.props.fetchPosts()
   }
-  
+
   renderPosts () {
 
     function cutString(text) {
@@ -23,7 +23,7 @@ class PostsIndex extends Component {
       // const year = date.getFullYear();
 
       const localStyleDate = date.toLocaleDateString("vi-VN");
-      return localStyleDate; 
+      return localStyleDate;
     }
 
     return _.map(this.props.posts, post => {
@@ -51,7 +51,7 @@ class PostsIndex extends Component {
 
   render () {
 
-    
+
     return (
       <div>
           <div className='text-xs-right'>

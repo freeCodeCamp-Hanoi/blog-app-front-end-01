@@ -4,6 +4,7 @@ import PostsIndex from './posts_index'
 import PostsNew from './posts_new'
 import PostsShow from './posts_show'
 import PostsEdit from './posts_edit'
+import Register from './register'
 import Login from './login'
 import Logout from './logout'
 
@@ -18,6 +19,7 @@ export default class Main extends Component {
             <Route path="/posts/new" component={PostsNew}/>
             <Route path="/posts/:id/edit" component={PostsEdit}/>
             <Route path="/posts/:id" component={PostsShow}/>
+            <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/logout" component={Logout} />
           </Switch>
