@@ -11,7 +11,7 @@ export const REGISTER_USER = 'register_user'
 export const LOGIN_USER = 'login_user'
 export const CREATE_COMMENT = 'create_comment'
 
-const ROOT_URL = 'http://localhost:3000/api'
+const ROOT_URL = 'https://fcchn-blog.herokuapp.com/api/'
 const API_KEY = ''
 
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + Auth.getToken()
