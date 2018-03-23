@@ -1,1 +1,1 @@
-web: node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development --inline --hot --port 80 --open
+web: node server.js
